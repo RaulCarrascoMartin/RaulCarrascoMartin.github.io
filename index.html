@@ -10,7 +10,7 @@
 <meta name="theme-color" content="#121418" media="(prefers-color-scheme: dark)">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Raúl Carrasco Martín — Desarrollador Backend / Full-Stack">
-<meta property="og:description" content="Java, Spring Boot y Angular. Monolitos modulares, arquitectura verificada con ArchUnit y 106 tests.">
+<meta property="og:description" content="Java, Spring Boot y Angular. Monolitos modulares, arquitectura verificada con ArchUnit y Spring Modulith y 532 tests.">
 <meta property="og:locale" content="es_ES">
 <meta name="twitter:card" content="summary">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2316181d'/%3E%3Ctext x='32' y='45' font-family='Georgia,serif' font-size='38' font-style='italic' text-anchor='middle' fill='%23faf8f4'%3ER%3C/text%3E%3C/svg%3E">
@@ -537,12 +537,12 @@ footer a { color: var(--body); }
         incorporando la IA como herramienta de ingeniería real: desarrollo guiado por
         especificaciones (SDD), agentes y skills, y buenas prácticas de arquitectura, testing y
         calidad de código. Los proyectos de abajo son el reflejo de eso: desde un backend modular
-        con 106 tests y reglas de arquitectura verificadas, hasta herramientas de línea de comandos
+        con 532 tests y reglas de arquitectura verificadas, hasta herramientas de línea de comandos
         hechas para resolver un problema real y bien documentadas.
       </p>
       <div class="figures">
-        <div class="figure"><b>106</b><span>tests en el proyecto principal</span></div>
-        <div class="figure"><b>19</b><span>reglas de arquitectura con ArchUnit</span></div>
+        <div class="figure"><b>532</b><span>tests en el proyecto principal</span></div>
+        <div class="figure"><b>41</b><span>reglas de arquitectura con ArchUnit</span></div>
         <div class="figure"><b>4</b><span>módulos con fronteras verificadas</span></div>
       </div>
     </section>
@@ -593,18 +593,18 @@ footer a { color: var(--body); }
         <p class="project-desc">
           Aplicación web de gestión de biblioteca — catálogo, préstamos/devoluciones y usuarios
           con roles — construida como <b>monolito modular</b>: cuatro módulos de negocio
-          (<span class="mono">libro</span>, <span class="mono">usuario</span>,
-          <span class="mono">prestamo</span>, <span class="mono">auth</span>) con fronteras
-          explícitas y arquitectura por capas interna, verificadas automáticamente en cada build.
+          (<span class="mono">catalog</span>, <span class="mono">users</span>,
+          <span class="mono">loans</span>, <span class="mono">auth</span>) con fronteras
+          explícitas y arquitectura por capas interna, verificadas automáticamente en cada build con Spring Modulith y ArchUnit.
         </p>
         <ul class="project-highlights">
-          <li><b>106 tests</b> (87 de integración/unitarios + 19 reglas de arquitectura con ArchUnit) sobre H2 en modo MySQL.</li>
-          <li>Autenticación JWT en cookie <span class="mono">HttpOnly</span> con doble mecanismo de revocación: lista de denegación para logout puntual y <span class="mono">tokenVersion</span> por usuario para invalidar todas las sesiones.</li>
-          <li>Bloqueo pesimista en préstamos para evitar condiciones de carrera en peticiones concurrentes sobre el mismo libro.</li>
-          <li>README de más de 500 líneas documentando cada decisión de arquitectura, sus compromisos y limitaciones conocidas.</li>
+          <li><b>532 tests</b> (JUnit, Mockito, MockMvc, 41 reglas de ArchUnit y Spring Modulith): 504 sin Docker y 28 de repositorio contra MariaDB real con Testcontainers. Esquema versionado con Flyway.</li>
+          <li>Autenticación JWT de acceso (15 min) + refresh token opaco guardado como hash SHA-256, con rotación y detección de reutilización; <span class="mono">tokenVersion</span> por usuario para invalidar todas las sesiones.</li>
+          <li>Bloqueo pesimista al reservar libros y optimista (<span class="mono">@Version</span>) en préstamos para evitar condiciones de carrera en peticiones concurrentes.</li>
+          <li>README de unas 460 líneas documentando cada decisión de arquitectura, sus compromisos y limitaciones conocidas.</li>
         </ul>
         <div class="project-foot">
-          <span class="project-stack">Java 21 · Spring Boot 4.1 · Spring Security · JPA · MySQL / H2 · JWT · ArchUnit</span>
+          <span class="project-stack">Java 21 · Spring Boot 4.1 · Spring Security · JPA · Flyway · MySQL / H2 · JWT · ArchUnit · Spring Modulith</span>
           <a class="arrow-link" href="https://github.com/RaulCarrascoMartin/Biblioteca" target="_blank" rel="noopener">Ver repositorio</a>
         </div>
       </article>
